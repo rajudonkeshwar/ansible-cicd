@@ -19,15 +19,16 @@
         }
 		
 		
-        // stage('sonar') {
-        //     steps {
-        //         echo 'scanning project'
-        //         sh 'ls -ltr'
-        //         sh '''cd Application && mvn sonar:sonar \\
-        //               -Dsonar.host.url=http://3.92.165.67:9000 \\
-        //               -Dsonar.login=squ_1ed7440050e2a1369d5dbf845cd67bae3850d9bc'''
-        //     }
-    	// }
+        stage('sonar') {
+            steps {
+                echo 'scanning project'
+                sh 'ls -ltr'
+                sh '''cd Application && mvn sonar:sonar \\
+                      -Dsonar.host.url=http://localhost:9000 \\
+                      -Dsonar.login=squ_22cbd65f94057a4851e37074f87910f97a99e12d'''
+            }
+    	}
+
        stage('Build docker image'){
             steps{
                 script{
