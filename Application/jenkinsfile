@@ -6,7 +6,7 @@
         stage('Checkout Code') {
             steps {
                 echo 'scm git'
-                git branch: 'main', url: 'https://github.com/devopstraininghub/REALTIMEPROJECT.git'
+                git branch: 'main', url: 'https://github.com/rajudonkeshwar/ansible-cicd.git'
             }
         }
     	
@@ -68,7 +68,6 @@
                     git config user.email "dvijaychandrakumar@gmail.com"
                     git config user.name "rajudonkeshwar"
                     BUILD_NUMBER=${BUILD_NUMBER}
-                  
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" Ansible/k8s_deployment.yaml
                     echo "===== Updated Deployment File ====="
                     cat Ansible/k8s_deployment.yaml
