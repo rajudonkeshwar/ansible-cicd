@@ -59,14 +59,14 @@
 		
       stage('Update kubernetes Deployment manifest File') {
         environment {
-            GIT_REPO_NAME = "REALTIMEPROJECT"
-            GIT_USER_NAME = "devopstraininghub"
+            GIT_REPO_NAME = "ansible-cicd"
+            GIT_USER_NAME = "rajudonkeshwar"
         }
         steps {
-            withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
+            withCredentials([string(credentialsId: 'git-hub', variable: 'GITHUB_TOKEN')]) {
                 sh '''
-                    git config user.email "madhu@gmail.com"
-                    git config user.name "madhu"
+                    git config user.email "dvijaychandrakumar@gmail.com"
+                    git config user.name "rajudonkeshwar"
                     BUILD_NUMBER=${BUILD_NUMBER}
                   
                     sed -i "s/k8s:.*/k8s:${BUILD_NUMBER}/g" Ansible/k8s_deployment.yaml
