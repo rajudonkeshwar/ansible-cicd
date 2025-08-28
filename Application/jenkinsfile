@@ -33,7 +33,7 @@
             steps{
                 script{
                     echo 'docker image build'
-					sh 'cd Application && docker build -t devopshubg333/k8s:${BUILD_NUMBER} .'
+					sh 'cd Application && docker build -t rajudonkeshwar/k8s:${BUILD_NUMBER} .'
                 }
             }
         }
