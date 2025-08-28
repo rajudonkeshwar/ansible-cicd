@@ -49,10 +49,10 @@
             steps{
                 script{
                    withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
-                   sh 'docker login -u devopshubg333 -p ${dockerhub}'
+                   sh 'docker login -u rajudonkeshwar -p ${dockerhub}'
 
               }
-                   sh 'docker push devopshubg333/k8s:${BUILD_NUMBER}'
+                   sh 'docker push rajudonkeshwar/k8s:${BUILD_NUMBER}'
                 }
             }
         }
