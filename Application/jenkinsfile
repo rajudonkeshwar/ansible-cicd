@@ -25,7 +25,7 @@
                 sh 'ls -ltr'
                 sh '''cd Application && mvn sonar:sonar \\
                       -Dsonar.host.url=http://localhost:9000 \\
-                      -Dsonar.login=squ_22cbd65f94057a4851e37074f87910f97a99e12d'''
+                      -Dsonar.login=squ_49b388be41edcb94c88d4a426e97acd17108ccb2'''
             }
     	}
 
@@ -63,7 +63,7 @@
             GIT_USER_NAME = "rajudonkeshwar"
         }
         steps {
-            withCredentials([string(credentialsId: 'git-hub', variable: 'GITHUB_TOKEN')]) {
+            withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
                     git config user.email "dvijaychandrakumar@gmail.com"
                     git config user.name "rajudonkeshwar"
@@ -83,11 +83,9 @@
 
     stage('k8s Deployment using ansible'){
             steps{
-              
-                    script{
-                        ansiblePlaybook credentialsId: 'ssh', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/', playbook: 'Ansible/ansible_k8s_deploy_playbook.yaml'
-                   
-                }
+            script{
+            ansiblePlaybook credentialsId: 'ssh', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/', playbook: 'Ansible/ansible_k8s_deploy_playbook.yaml'       
+            }
             }
         }
 }
