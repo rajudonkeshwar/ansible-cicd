@@ -42,7 +42,7 @@
     //     steps{
     //         sh "trivy image rajudonkeshwar/k8s:${BUILD_NUMBER}"
     //     }
-    }		
+    // }		
          
 
 		 stage('Push image to Hub'){
