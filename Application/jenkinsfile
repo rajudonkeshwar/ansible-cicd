@@ -84,7 +84,7 @@
     stage('k8s Deployment using ansible'){
             steps{
             script{
-            ansiblePlaybook credentialsId: 'ssh', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/inventory.ini', playbook: 'Ansible/ansible_k8s_deploy_playbook.yaml'       
+            ansiblePlaybook credentialsId: 'ssh', disableHostKeyChecking: true, installation: 'ansible', inventory: 'Ansible/inventory.ini', playbook: 'Ansible/ansible_k8s_deploy_playbook.yaml'       
             }
             }
         }
